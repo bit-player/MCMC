@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Ising Model Boundary Conditions</title>
+		<meta name="author" content="Brian Hayes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+		<link rel="stylesheet" href="../MCMC.css"></link>
+	</head>
+
+	<body>
+		<div id="the-viz" style="width: 612px;">
+			<h4>Program 4: Boundary Conditions</h4>
+			<div id="meters">
+				<div id="magnetization-meter" class="readout">
+					<div>Magnetization:</div> 
+					<div id="magnetization-readout" class="readout-number"></div>
+				</div>
+				<div id="correlation-meter" class="readout">
+					Local Correlation:
+					<div id="correlation-readout" class="readout-number"></div>
+				</div>
+			</div>
+			<canvas id="the-canvas" width="612px" height="612px"></canvas>
+			<div id="the-controls">
+				<div id="temperature">
+					<div>
+						<output id="temperature-readout" for="temperature-slider" class="slider-output">3.00</output>
+						<input id="temperature-slider" type="range" min="0.01" max="5.0" step="0.01" value="3.00">
+					</div>
+					<label id="temperature-label" class="dropout" for="temperature-slider">Temperature</label>
+				</div>
+				<div id="run-reset-group">
+					<button id="run-button">Run</button>
+					<button id="step-button">Step</button>
+					<button id="reset-button">Reset</button>
+				</div>
+				<div id="boundary-button-group">
+					<div id="boundary-label" class="dropout">Boundary</div>
+					<div>
+						<input type="radio" id="radio-wraparound" name="boundary" value="wraparound" checked/>
+						<label for="radio-wraparound">wraparound</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-up" name="boundary" value="up"/>
+						<label for="radio-up">all up</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-down" name="boundary" value="down"/>
+						<label for="radio-down">all down</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-random" name="boundary" value="random"/>
+						<label for="radio-random">random</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-zero" name="boundary" value="zero"/>
+						<label for="radio-zero">zero</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-sampled" name="boundary" value="sampled"/>
+						<label for="radio-sampled">sampled</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-underdog" name="boundary" value="underdog">
+						<label for="radio-underdog">underdog</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-twisted" name="boundary" value="twisted">
+						<label for="radio-twisted">twisted</label>
+					</div>
+				</div>
+				<div id="algorithm-button-group">
+					<div id="algorithm-label" class="dropout">Algorithm</div>
+					<div>
+						<input type="radio" id="radio-metropolis" name="algorithm" value="metropolis" checked/>
+						<label for="radio-metropolis">Metropolis</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-glauber" name="algorithm" value="glauber"/>
+						<label for="radio-glauber">Glauber</label>
+					</div>
+					<div id=highlight-checkbox-div>
+						<input type="checkbox" id="highlight-checkbox" name="highlight-checkbox" value="highlight"  style="margin-top: 55px;"/>
+						<label for="highlight-checkbox">Dotted Swiss</label>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div id="stats-output"></div>
+		<script type="text/javascript" src="boundaries.js"></script>
+	</body>
+
+</html>

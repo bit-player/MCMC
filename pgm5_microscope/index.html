@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>The MCMC Microscope</title>
+		<meta name="author" content="Brian Hayes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+		<link rel="stylesheet" href="../MCMC.css"></link>
+	</head>
+
+	<body>
+		<div id="the-viz">
+			<h4>Program 5: The MCMC Microscope</h4>
+			<div id="meters">
+				<div id="magnetization-meter" class="readout">
+					<div>Magnetization:</div> 
+					<div id="magnetization-readout" class="readout-number"></div>
+				</div>
+				<div id="correlation-meter" class="readout">
+					Local Correlation:
+					<div id="correlation-readout" class="readout-number"></div>
+				</div>
+			</div>
+			<canvas id="the-canvas" width="600px" height="600px"></canvas>
+			<div id="the-controls">
+				<div id="run-reset-group" style="width: 75px;">
+					<button id="micro-button">Microstep</button>
+					<button id="macro-button">Macrostep</button>
+					<button id="run-button">Run</button>
+					<button id="reset-button">Reset</button>
+				</div>
+				<div id="init-radio-group">
+					<div id="init-label" class="dropout">Initialization</div>
+					<div>
+						<input type="radio" id="radio-spin-random" name="init-pattern" value="init-random" checked/>
+						<label for="radio-spin-random">scrambled</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-spin-up" name="init-pattern" value="init-up">
+						<label for="radio-spin-up">up</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-spin-down" name="init-pattern" value="init-down">
+						<label for="radio-spin-down">down</label>
+					</div>
+				</div>
+				<div id="visitation-radio-group">
+					<div id="visitation-label" class="dropout">Visitation</div>
+					<div>
+						<input type="radio" id="radio-typewriter" name="visit-sequence" value="typewriter" checked/>
+						<label for="radio-typewriter">typewriter</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-checkerboard" name="visit-sequence" value="checkerboard"/>
+						<label for="radio-checkerboard">checkerboard</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-diagonal" name="visit-sequence" value="diagonal"/>
+						<label for="radio-permuted">diagonal</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-permuted" name="visit-sequence" value="permuted"/>
+						<label for="radio-permuted">permuted</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-re-permuted" name="visit-sequence" value="repermuted"/>
+						<label for="radio-permuted">re-permuted</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-random" name="visit-sequence" value="random"/>
+						<label for="radio-random">random</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-simultaneous" name="visit-sequence" value="simultaneous"/>
+						<label for="radio-random">simultaneous</label>
+					</div>
+				</div>
+				<div id="acceptance-radio-group">
+					<div id="acceptance-label" class="dropout">Acceptance</div>
+					<div>
+						<input type="radio" id="radio-M-rule" name="acceptance-function" value="M_rule" checked/>
+						<label for="radio-M-rule">M rule</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-G-rule" name="acceptance-function" value="G_rule"/>
+						<label for="radio-G-rule">G rule</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-M-star-rule" name="acceptance-function" value="M_star_rule"/>
+						<label for="radio-M-star-rule">M* rule</label>
+					</div>
+					<div>
+						<input type="checkbox" id="doodle-checkbox" name="doodle-checkbox" value="doodle" style="margin-top: 38px;">
+						<label for="doodle-checkbox">Doodle Mode</label>
+					</div>
+					<div id=highlight-checkbox-div>
+						<input type="checkbox" id="highlight-checkbox" name="highlight-checkbox" value="highlight"/>
+						<label for="highlight-checkbox">Dotted Swiss</label>
+					</div>
+				</div>
+			</div>
+			<div id="temperature" style="width: 310px; position: absolute; left: 0px; top: 790px;">
+				<div>
+					<output id="temperature-readout" for="temperature-slider" class="slider-output">3.00</output>
+					<input id="temperature-slider" type="range" min="0.01" max="5.0" step="0.01" value="3.00">
+				</div>
+				<label id="temperature-label" class="dropout" style="font-size: 10pt" for="temperature-slider">Temperature</label>
+			</div>
+		</div>
+		<div id="stats-output"></div>
+		<script type="text/javascript" src="microscope.js"></script>
+	</body>
+
+</html>

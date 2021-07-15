@@ -1,0 +1,90 @@
+div#the-viz {
+  font-family: sans-serif;
+  position: relative; 
+  width: 600px; 
+  margin: 15px auto;
+}
+
+div#meters {
+  background-color: #E1E1E1;
+  font-family: sans-serif;
+  font-size: 11pt;
+  height: 35px;
+  display: flex; 
+  justify-content: space-around;
+}
+
+div.readout {
+  display: flex; 
+  justify-content: space-between;
+  margin: auto;
+}
+
+div.readout-number {
+  width: 65px;
+  text-align: right;
+  font-family: monospace;
+}
+
+h4 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 5pt;
+  margin-bottom: 5pt;
+}
+
+div#the-controls {
+  font-family: sans-serif;
+  font-size: 10pt;
+  display: flex;
+  justify-content: space-around; 
+  margin: 10px auto;
+}
+
+div#stats-output {
+  width: 600px;
+  margin: auto;
+  font-family: monospace;
+}
+
+div#temperature {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#temperature-label {
+  margin: 0 auto;
+}
+
+div#run-reset-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.slider-output {
+  font-family: sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+}
+
+input#temperature-slider {
+  width: 250px;
+  margin: auto 10px;
+}
+
+button {
+  margin: 2px 0;
+}
+
+.dropout {
+  color: #fff;
+  background-color: #363636;
+  text-align: center;
+  padding: 1px 10px;
+  margin-bottom: 3px;
+  border-radius: 3pt;
+}
+

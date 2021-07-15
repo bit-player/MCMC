@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Visit Sequence and Acceptance Function</title>
+		<meta name="author" content="Brian Hayes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+		<link rel="stylesheet" href="../MCMC.css"></link>
+	</head>
+
+	<body>
+		<div id="the-viz">
+			<h4>Program 2: Mix and Match</h4>
+			<div id="meters">
+				<div id="magnetization-meter" class="readout">
+					<div>Magnetization:</div> 
+					<div id="magnetization-readout" class="readout-number"></div>
+				</div>
+				<div id="correlation-meter" class="readout">
+					Local Correlation:
+					<div id="correlation-readout" class="readout-number"></div>
+				</div>
+			</div>
+			<canvas id="the-canvas" width="600px" height="600px"></canvas>
+			<div id="the-controls">
+				<div id="temperature">
+					<div>
+						<output id="temperature-readout" for="temperature-slider" class="slider-output">3.00</output>
+						<input id="temperature-slider" type="range" min="0.01" max="5.0" step="0.01" value="3.00">
+					</div>
+					<label id="temperature-label" class="dropout" for="temperature-slider">Temperature</label>
+				</div>
+				<div id="run-reset-group">
+					<button id="run-button">Run</button>
+					<button id="step-button">Step</button>
+					<button id="reset-button">Reset</button>
+				</div>
+				<div id="itinerary-radio-button-group">
+					<div id="itinerary-label" class="dropout">Visitation</div>
+					<div>
+						<input type="radio" id="radio-deterministic" name="visitation" value="deterministic" checked/>
+						<label for="radio-deterministic">deterministic</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-random" name="visitation" value="random"/>
+						<label for="radio-random">random</label>
+					</div>
+				</div>
+				<div id="acceptance-function-radio-button-group">
+					<div id="acceptance-label" class="dropout">Acceptance</div>
+					<div>
+						<input type="radio" id="radio-M-rule" name="acceptance-function" value="M_rule" checked/>
+						<label for="radio-M-rule">M rule</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-G-rule" name="acceptance-function" value="G_rule"/>
+						<label for="radio-G-rule">G rule</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-M-star-rule" name="acceptance-function" value="M_star_rule"/>
+						<label for="radio-M-star-rule">M* rule</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="stats-output"></div>
+		<script type="text/javascript" src="mix_and_match.js"></script>
+	</body>
+
+</html>

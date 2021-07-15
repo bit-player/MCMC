@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Metropolis vs. Glauber</title>
+		<meta name="author" content="Brian Hayes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+		<link rel="stylesheet" href="../MCMC.css"></link>
+	</head>
+
+	<body>
+		<div id="the-viz">
+			<h4>Program 1: Metropolis <em>vs.</em> Glauber</h4>
+			<div id="meters">
+				<div id="magnetization-meter" class="readout">
+					<div>Magnetization:</div> 
+					<div id="magnetization-readout" class="readout-number"></div>
+				</div>
+				<div id="correlation-meter" class="readout">
+					Local Correlation:
+					<div id="correlation-readout" class="readout-number"></div>
+				</div>
+			</div>
+			<canvas id="the-canvas" width="600px" height="600px"></canvas>
+			<div id="the-controls">
+				<div id="temperature">
+					<div>
+						<output id="temperature-readout" for="temperature-slider" class="slider-output">3.00</output>
+						<input id="temperature-slider" type="range" min="0.01" max="5.0" step="0.01" value="3.00">
+					</div>
+					<label id="temperature-label" class="dropout" for="temperature-slider">Temperature</label>
+				</div>
+				<div id="run-reset-group">
+					<button id="run-button">Run</button>
+					<button id="step-button">Step</button>
+					<button id="reset-button">Reset</button>
+				</div>
+				<div id="radio-button-group">
+					<div>
+						<input type="radio" id="radio-metro" name="algorithm" value="metro" checked/>
+						<label for="radio-metro">Metropolis</label>
+					</div>
+					<div>
+						<input type="radio" id="radio-glauber" name="algorithm" value="glauber"/>
+						<label for="radio-glauber">Glauber</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="stats-output"></div>
+		<script type="text/javascript" src="metro_v_glauber.js"></script>
+	</body>
+
+</html>
